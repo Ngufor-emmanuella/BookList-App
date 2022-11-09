@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My Book List </title>
+</head>
+<body>
+  <section class="main">
+    <nav class="nav">
+      <h3 class="logo"> Awsome books</h3>
+      <ul class="nav-list">
+        <li><a href="#section" onclick="showListBtn()">List</a></li>
+        <li><a href="#form" onclick="newbookBtn()">Add New</a></li>
+        <li><a href="#contact-info" onclick="contactFunction()" id="showcontactBtn">Contact</a></li>
+      </ul>
+    </nav>
+  
+    <div class="container" id="container">
+      <h1>All Awsome Books</h1>
+    </div>
+  
+  <h1 id="heading" class="heading">Emma's ShoppingList </h1>
+  <section id="section" class="section">
+    <!-- <div>
+      <ul id="list-of-books">
+        <li>First shopping item</li>
+        <li>brand of the item</li>
+      </ul>
+
+      <button class="remove" id="remove">Remove item</button>
+      <hr>
+    </div> -->
+    <!-- -->
+  </section>
+
+  <form id="form" action="https://formspree.io/f/mgeqyerj">
+    <input type="text" placeholder="first item" id="item">
+    <input type="text" placeholder="brand of item" id="brand">
+
+    <button src="#" type="submit" class="add" id="add"> Add item</button>
+
+    <p id="errormsg" class="error"></p>
+  </form>
+
+  <section id="contact-info" class="con-con">
+    <h2 class="secH">Contact Information</h2>
+    <p class="secP">Do have any question or you just want to say "hello"<br>You can reach out to us on:<br></p>
+    <ul class="sero">
+      <li>Our Mail: emmanuellanguforgmail.com</li>
+      <li>Our phone number: +237652250611</li>
+      <li>Our address is: Yaounde-Cameroon</li>
+    </ul>
+    </section>
+
+  <footer>
+    <h5> &copy;Copyright All right reserved 2022</h5>
+  </footer>
+</section>
+  
+  <script src="script.js"></script>
+</body>
+</html>
