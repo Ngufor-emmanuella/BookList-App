@@ -200,6 +200,6 @@ footer {
   justify-content: center;
 }
 
-#list-book {
+.list-book {
   display: flex;
 }

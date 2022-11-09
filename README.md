@@ -1,5 +1,5 @@
 # BookList-App
-In this project I built a to-do-list app where the user inputs a value and is able to remove it aswell.Nav bars displaying each section of the list
+In this project I built a to-do-list app where the user inputs a value and is able to remove it aswell.Nav bars displaying each section of the list.Also items were saved to the local storage
 ## Built With
 
 - HTML

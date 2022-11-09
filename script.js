@@ -12,7 +12,6 @@ const listBook = document.getElementById('list-book');
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("click me");
   formValidation();
   formValidate();
 })
@@ -36,29 +35,55 @@ const formValidate = () => {
   }
 };
 
-// we accept and store data and invoke in sucess state
-const storeData = {};
+// we accept and store data and invoke in sucess state, convert the empty objects to array and pushx objects so as to store in ls
+let storeData = [];
+
 const acceptData = () => {
-  storeData["text"] = items.value;
+  storeData.push({
+    text: items.value,
+  });
+  localStorage.setItem("storeData", JSON.stringify(storeData));
+  console.log(storeData);
 };
 
-const storeSec = {};
+let storeSec = [];
+
 const acceptSec = () => {
-  storeSec["text"] = brands.value;
+  storeSec.push({
+    text: brands.value,
+  });
+  localStorage.setItem("storeSec", JSON.stringify(storeSec));
+  console.log(storeSec);
   uploadScreen();
 };
 
 // we upload on screen 
 const uploadScreen = () => {
-  section.innerHTML += `<div class="list-book" id="list-book">
-  <ul id="list-of-books">
-    <li>${storeData.text}</li>
-    <li>${storeSec.text}</li>
-  </ul>
+  section.innerHTML = "";
+  storeData.map((x,y) =>{
+    return (section.innerHTML += `<div class="list-book" id="list-book ${y}">
+    <ul id="list-of-books">
+      <li>${x.text}</li>
+      <li>${x.text}</li>
+    </ul>
+  
+    <button onClick="deleteFun(this)" class="remove" id="remove">Remove item</button>
+    <hr>
+  </div> `);
+  })
 
-  <button onClick="deleteFun(this)" class="remove" id="remove">Remove item</button>
-  <hr>
-</div> `;
+  storeSec.map((x,y) => {
+    return (section.innerHTML += `<div class="list-book" id="list-book ${y}">
+    <ul id="list-of-books">
+      <li>${x.text}</li>
+      <li>${x.text}</li>
+    </ul>
+  
+    <button onClick="deleteFun(this)" class="remove" id="remove">Remove item</button>
+    <hr>
+  </div> `);
+  })
+  
 //reseting
 items.value = '';
 brands.value = '';
@@ -102,7 +127,7 @@ const newbookBtn = () => {
   }
 };
 
-const showListBtn = () => {
+const showBtn = () => {
   if(listBook.style.display === "flex") {
     listBook.style.display = "flex";
     container.style.display = "flex";
@@ -117,3 +142,10 @@ const showListBtn = () => {
     contact.style.display = "none";
   }
 };
+
+//retrive data from ls back into our array
+(() => {
+  storeData = JSON.parse(localStorage.getItem("storeData"));
+  uploadScreen();
+  console.log(storeData);
+})();
